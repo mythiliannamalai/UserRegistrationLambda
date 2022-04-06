@@ -37,11 +37,26 @@ namespace UserRegistrationLambda
                 Console.WriteLine("invalid Name.");
             }
         }
+        public void Emails()
+        {
+            Regex EmailReg = new Regex(@"^[a-z](.[a-z])+@[a-z]+.[a-z]{3}(.[a-z]{2})$");
+            bool MethodName(string Email) => EmailReg.IsMatch(Email);
+            bool result = MethodName("mythili.abc@gmail.com");
+            if (result == true)
+            {
+                Console.WriteLine("Valid Email");
+            }
+            else
+            {
+                Console.WriteLine("invalid Email.");
+            }
+        }
         static void Main(string[]args)
         {
             UserRegistration userRegistration = new UserRegistration();
             userRegistration.Firstnamein();
             userRegistration.Lastenamein();
+            userRegistration.Emails();
         }
     }    
 }
