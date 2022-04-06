@@ -79,6 +79,20 @@ namespace UserRegistrationLambda
                 Console.WriteLine("invalid PassWord.");
             }
         }
+        public void AllEmails()
+        {
+            Regex AllEmailReg = new Regex(@"^[a-z]((.-+){1})([0-9]{3})+@([0-9]{1})([a-z]{,5})+.[a-z]{3}(.[a-z]{2,})$");
+            bool MethodName(string AllEmail) => AllEmailReg.IsMatch(AllEmail);
+            bool result = MethodName("mythili.abc@gmail.com");
+            if (result == true)
+            {
+                Console.WriteLine("Valid AllEmail");
+            }
+            else
+            {
+                Console.WriteLine("invalid AllEmail.");
+            }
+        }
         static void Main(string[]args)
         {
             UserRegistration userRegistration = new UserRegistration();
@@ -87,6 +101,7 @@ namespace UserRegistrationLambda
             userRegistration.Emails();
             userRegistration.PhoneNumbers();
             userRegistration.PassWords();
+            userRegistration.AllEmails();
         }
     }    
 }
