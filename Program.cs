@@ -65,6 +65,20 @@ namespace UserRegistrationLambda
                 Console.WriteLine("invalid PhoneNumber.");
             }
         }
+        public void PassWords()
+        {
+            Regex PassWordReg = new Regex(@"^[A-Z]@[0-9][A-Za-z]{8,}$");
+            bool MethodName(string PassWord) => PassWordReg.IsMatch(PassWord);
+            bool result = MethodName("z@1mythiliannamalai");
+            if (result == true)
+            {
+                Console.WriteLine("Valid PassWord");
+            }
+            else
+            {
+                Console.WriteLine("invalid PassWord.");
+            }
+        }
         static void Main(string[]args)
         {
             UserRegistration userRegistration = new UserRegistration();
@@ -72,6 +86,7 @@ namespace UserRegistrationLambda
             userRegistration.Lastenamein();
             userRegistration.Emails();
             userRegistration.PhoneNumbers();
+            userRegistration.PassWords();
         }
     }    
 }
