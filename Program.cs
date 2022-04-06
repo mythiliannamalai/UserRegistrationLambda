@@ -51,12 +51,27 @@ namespace UserRegistrationLambda
                 Console.WriteLine("invalid Email.");
             }
         }
+        public void PhoneNumbers()
+        {
+            Regex PhoneNumberReg = new Regex(@"^[0-9]{2}\s[0-9]{10}$");
+            bool MethodName(string PhoneNumber) => PhoneNumberReg.IsMatch(PhoneNumber);
+            bool result = MethodName("97 9790480277");
+            if (result == true)
+            {
+                Console.WriteLine("Valid PhoneNumber");
+            }
+            else
+            {
+                Console.WriteLine("invalid PhoneNumber.");
+            }
+        }
         static void Main(string[]args)
         {
             UserRegistration userRegistration = new UserRegistration();
             userRegistration.Firstnamein();
             userRegistration.Lastenamein();
             userRegistration.Emails();
+            userRegistration.PhoneNumbers();
         }
     }    
 }
